@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ConferenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', static function () {
+//    return view('conference.show', []);
+//})->name('conference.show');
+Route::resource('/', ConferenceController::class)->only(['index']);
+//Route::get('/contact', [ConferenceController::class, 'contact'])->name('conference.somethingelse');
+
+
+Route::get('/articles/{id}', function ($articleId) {
+    $articles = [
+        1 => [
+            'title' => 'First article',
+            'content' => 'First article text 123123'
+        ],
+        2 => [
+            'title' => 'Second article',
+            'content' => 'Second article text 123123'
+        ]
+    ];
+
+    abort_if(!isset($articles[$articleId]), 404);
+
+    return view('articles.show', ['article' => $articles[$articleId]]);
+})->name('articles.show');
