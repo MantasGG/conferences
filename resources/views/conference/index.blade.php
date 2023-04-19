@@ -1,4 +1,6 @@
 @extends('layouts.app')
+
+@section('content')
 <h1>Conferences list</h1>
 <table>
     <tr>
@@ -8,18 +10,15 @@
         <th>Date</th>
         <th>Address</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Conference</td>
-        <td>Conference description</td>
-        <td>2023-04-30</td>
-        <td>Kazkokia g. 6 Kaunas</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Conference</td>
-        <td>Conference description</td>
-        <td>2023-04-28</td>
-        <td>Kazkokia g. 3 Kaunas</td>
-    </tr>
+    @foreach($conferences as $conference)
+        <tr>
+            <td><a href="/conference/{{ $conference['id'] }}">{{ $conference['id'] }}</a></td>
+            <td>{{ $conference['title'] }}</td>
+            <td>{{ $conference['description'] }}</td>
+            <td>{{ $conference['date'] }}</td>
+            <td>{{ $conference['address'] }}</td>
+        </tr>
+    @endforeach
+
 </table>
+@endsection
