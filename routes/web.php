@@ -18,7 +18,8 @@ use \App\Http\Controllers\ConferenceController;
 //    return view('conference.show', []);
 //})->name('conference.show');
 Route::resource('/', ConferenceController::class)->only(['index']);
-//Route::get('/contact', [ConferenceController::class, 'contact'])->name('conference.somethingelse');
+Route::resource('/conference', ConferenceController::class)->only(['show']);
+//Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('conference.show');
 
 
 Route::get('/articles/{id}', function ($articleId) {
