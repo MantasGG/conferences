@@ -4,6 +4,7 @@
     @if(session('status'))
         <div style="background-color: green; color: lime">{{ session('status') }}</div>
     @endif
+    <a href="{{ route('index') }}"><button type="button">Back</button></a>
     <h2>#{{ $conference['id'] }}</h2>
     <h2>Title</h2>
     <p>{{ $conference['title'] }}</p>
@@ -13,4 +14,7 @@
     <p>{{ $conference['date'] }}</p>
     <h3>Address</h3>
     <p>{{ $conference['address'] }}</p>
+    <a href="{{ route('conference.edit', ['id' => $conference['id']]) }}">
+        <button type="button">Edit</button>
+    </a>
 @endsection
