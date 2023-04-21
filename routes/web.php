@@ -18,7 +18,9 @@ use \App\Http\Controllers\ConferenceController;
 //    return view('conference.show', []);
 //})->name('conference.show');
 Route::resource('/', ConferenceController::class)->only(['index']);
-Route::resource('/conference', ConferenceController::class)->only(['show']);
+Route::resource('conference', ConferenceController::class)->only(['show']);
+Route::post('/store', [ConferenceController::class, 'store'])->name('conference.store');
+Route::get('/create', [ConferenceController::class, 'create'])->name('conference.create');
 //Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('conference.show');
 
 

@@ -12,7 +12,7 @@
     </tr>
     @foreach($conferences as $conference)
         <tr>
-            <td><a href="/conference/{{ $conference['id'] }}">{{ $conference['id'] }}</a></td>
+            <td><a href="/show/{{ $conference['id'] }}">{{ $conference['id'] }}</a></td>
             <td>{{ $conference['title'] }}</td>
             <td>{{ $conference['description'] }}</td>
             <td>{{ $conference['date'] }}</td>
@@ -21,4 +21,5 @@
     @endforeach
 
 </table>
+    <a href="/create">Create conference</a>
 @endsection
