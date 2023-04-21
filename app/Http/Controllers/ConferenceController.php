@@ -42,4 +42,17 @@ class ConferenceController extends Controller
 
         return redirect()->route('conference.show', ['conference' => $conference->id]);
     }
+
+    public function edit($id)
+    {
+        $conference = Conference::findOrFail($id);
+        return view('conference.edit', compact('conference'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $conference = Conference::findOrFail($id);
+        $conference->update($request->all());
+        return redirect()->route('conference.show', ['conference' => $conference->id]);
+    }
 }

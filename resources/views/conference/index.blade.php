@@ -9,17 +9,10 @@
         <th>Description</th>
         <th>Date</th>
         <th>Address</th>
+        <th>Actions</th>
     </tr>
-    @foreach($conferences as $conference)
-        <tr>
-            <td><a href="/show/{{ $conference['id'] }}">{{ $conference['id'] }}</a></td>
-            <td>{{ $conference['title'] }}</td>
-            <td>{{ $conference['description'] }}</td>
-            <td>{{ $conference['date'] }}</td>
-            <td>{{ $conference['address'] }}</td>
-        </tr>
-    @endforeach
+
+    @each('conference.partials.list', $conferences, 'conference')
 
 </table>
-    <a href="/create">Create conference</a>
 @endsection
