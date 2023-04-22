@@ -23,8 +23,7 @@ Route::post('/store', [ConferenceController::class, 'store'])->name('conference.
 Route::get('/create', [ConferenceController::class, 'create'])->name('conference.create');
 Route::get('/edit/{id}', [ConferenceController::class, 'edit'])->name('conference.edit');
 Route::put('/update/{id}', [ConferenceController::class, 'update'])->name('conference.update');
-//Route::get('/conference/{id}', [ConferenceController::class, 'show'])->name('conference.show');
-
+Route::delete('/destroy/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
 
 Route::get('/articles/{id}', function ($articleId) {
     $articles = [

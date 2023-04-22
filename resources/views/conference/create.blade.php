@@ -4,7 +4,7 @@
 
 @section('content')
     <h4>Conference creation form</h4>
-    <a href="{{ route('conference.index') }}">
+    <a href="{{ route('index') }}">
         <button type="button">Back</button>
     </a>
     <form action="{{ route('conference.store') }}" method="POST">

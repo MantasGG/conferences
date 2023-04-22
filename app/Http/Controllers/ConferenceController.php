@@ -55,4 +55,14 @@ class ConferenceController extends Controller
         $conference->update($request->all());
         return redirect()->route('conference.show', ['conference' => $conference->id]);
     }
+
+    public function destroy($id)
+    {
+        $conference = (new Conference())->findOrFail($id);
+        $conference->delete();
+
+        session()->flash('status', 'Conference was deleted');
+
+        return redirect()->route('index');
+    }
 }
