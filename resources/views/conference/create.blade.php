@@ -3,15 +3,23 @@
 @section('title', 'Conference creation form')
 
 @section('content')
-    <h4>Conference creation form</h4>
-    <a href="{{ route('index') }}">
-        <button type="button">Back</button>
-    </a>
-    <form action="{{ route('conference.store') }}" method="POST">
-        @csrf
-        @include('conference.partials.form')
-        <div>
-            <input type="submit" value="Create">
-        </div>
-    </form>
+    <div class="container">
+        <h4 class="mb-4">Conference Creation Form</h4>
+        <form action="{{ route('conference.store') }}" method="POST">
+            @csrf
+            @include('conference.partials.form')
+            @if($errors->any())
+                <div class="alert alert-danger mt-3">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary mt-4">Create</button>
+            </div>
+        </form>
+    </div>
 @endsection
