@@ -20,11 +20,11 @@ use \App\Http\Controllers\ConferenceController;
 //})->name('conference.show');
 Route::resource('/', ConferenceController::class)->only(['index']);
 Route::resource('/conference', ConferenceController::class)->only(['show']);
-Route::post('/store', [ConferenceController::class, 'store'])->name('conference.store');
-Route::get('/create', [ConferenceController::class, 'create'])->name('conference.create');
-Route::get('/edit/{id}', [ConferenceController::class, 'edit'])->name('conference.edit');
-Route::put('/update/{id}', [ConferenceController::class, 'update'])->name('conference.update');
-Route::delete('/destroy/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
+Route::post('/store', [ConferenceController::class, 'store'])->name('conference.store')->middleware('auth');
+Route::get('/create', [ConferenceController::class, 'create'])->name('conference.create')->middleware('auth');
+Route::get('/edit/{id}', [ConferenceController::class, 'edit'])->name('conference.edit')->middleware('auth');
+Route::put('/update/{id}', [ConferenceController::class, 'update'])->name('conference.update')->middleware('auth');
+Route::delete('/destroy/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy')->middleware('auth');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::get('login', [LoginController::class, 'login'])->name('login');

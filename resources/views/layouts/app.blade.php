@@ -11,6 +11,7 @@
 <body style="margin: 20px;">
 <div>
     <header class="m-10">
+            <a href="{{ route('index') }}">Home</a>
         @guest
             <a href="{{ route('login') }}">Login</a>
         @else

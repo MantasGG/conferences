@@ -8,6 +8,7 @@
         <a href="{{ route('conference.show', ['conference' => $conference->id]) }}">
             <button type="button">View</button>
         </a>
+        @auth
         <a href="{{ route('conference.edit', ['id' => $conference['id']]) }}">
             <button type="button">Edit</button>
         </a>
@@ -16,5 +17,6 @@
             @method('DELETE')
             <button type="submit">Delete</button>
         </form>
+        @endauth
     </td>
 </tr>
