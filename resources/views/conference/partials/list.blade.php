@@ -11,5 +11,10 @@
         <a href="{{ route('conference.edit', ['id' => $conference['id']]) }}">
             <button type="button">Edit</button>
         </a>
+        <form action="{{ route('conference.destroy', ['id' => $conference->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Delete</button>
+        </form>
     </td>
 </tr>
