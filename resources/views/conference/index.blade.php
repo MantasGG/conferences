@@ -6,7 +6,7 @@
     <div style="background-color: green; color: lime">{{ session('status') }}</div>
 @endif
 <a href="{{ route('conference.create') }}"><button type="button">Create conference</button></a>
-<table>
+<table class="table table-striped table-hover">
     <tr>
         <th>Id</th>
         <th>Title</th>

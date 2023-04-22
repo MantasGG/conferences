@@ -1,4 +1,4 @@
-<tr>
+<tr class="active">
     <td>{{ $conference['id'] }}</td>
     <td>{{ $conference['title'] }}</td>
     <td>{{ $conference['description'] }}</td>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ConferenceController;
 
@@ -25,6 +26,11 @@ Route::get('/edit/{id}', [ConferenceController::class, 'edit'])->name('conferenc
 Route::put('/update/{id}', [ConferenceController::class, 'update'])->name('conference.update');
 Route::delete('/destroy/{id}', [ConferenceController::class, 'destroy'])->name('conference.destroy');
 
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
+Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+
 Route::get('/articles/{id}', function ($articleId) {
     $articles = [
         1 => [
@@ -41,3 +47,7 @@ Route::get('/articles/{id}', function ($articleId) {
 
     return view('articles.show', ['article' => $articles[$articleId]]);
 })->name('articles.show');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
